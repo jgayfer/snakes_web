@@ -1,0 +1,46 @@
+table {
+  border-collapse: collapse;
+}
+
+tr, td {
+  border: 1px solid black;
+}
+
+td {
+  height: 50px;
+  width: 80px;
+  padding: 2px;
+}
+
+.number, .transition {
+  display: inline;
+  position: absolute;
+  top: -1.45rem;
+}
+
+.transition {
+  float: right;
+  font-size: .8rem;
+  right: 0;
+}
+
+.player {
+  position: absolute;
+  font-weight: bold;
+}
+
+.cell {
+  position: relative;
+}
+
+.board-container {
+  margin: .5rem;
+}
+
+#status-text {
+  margin: .5rem;
+}
+
+button {
+  margin: .5rem;
+}
