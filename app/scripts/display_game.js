@@ -113,13 +113,32 @@ function set_status_text(game_json) {
   let status = document.getElementById("status-text")
   let previous_player = game_json['game']['previous_player']
   let next_player = game_json['game']['next_player']
+  let winning_position = game_json['game']['board']['winning_position']
+  let previous_player_won = false
 
   for (i = 0; i < game_json['game']['players'].length; i++) {
     if (game_json['game']['players'][i]['name'] == previous_player) {
-      var last_roll = game_json['game']['players'][i]['last_roll']
+      let player = game_json['game']['players'][i]
+      var last_roll = player['last_roll']
+
+      if (player['position'] == winning_position) {
+        previous_player_won = true
+      }
     }
   }
 
-  let text = previous_player + " rolled a " + last_roll + "<br>Next up: " + next_player
+  let text = ""
+
+  if (last_roll > 0) {
+    text += previous_player + " rolled a " + last_roll + "<br>"
+  }
+  
+  if (previous_player_won) {
+    text += previous_player + " won!"
+    document.getElementById("move-player-btn").setAttribute("style", "display: none;")
+  } else {
+    text += "Next up: " + next_player
+  }
+
   status.innerHTML = text
 }
