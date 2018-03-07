@@ -1,0 +1,55 @@
+const BASE_URL = 'http://localhost:9292/'
+
+function create_game(player_name, callback) {
+  post('game', {'player': player_name}, callback)
+}
+
+function join_game(player_name, game_id, callback) {
+  post('game/' + game_id + '/join', {'player': player_name}, callback)
+}
+
+function get_game(game_id, client_id, callback) {
+  get('game/' + game_id, {'client_id': client_id, 'test': 'etst2'}, callback)
+}
+
+function move(game_id, client_id, callback) {
+  post('game/' + game_id + '/move', {'client_id': client_id}, callback)
+}
+
+// ******************
+// Internal functions
+// ******************
+
+function url_formatter(route, params) {
+  var url = BASE_URL + route
+  if (params) { url += '/?' }
+  for (const [key, value] of Object.entries(params)) {
+    url += key + '=' + value + '&'
+  }
+  if (Object.keys(params).length) {
+    url = url.slice(0, -1)
+  }
+  return url
+}
+
+function get(route, params, callback) {
+  var xhttp = get_xhttp(callback)
+  xhttp.open("GET", url_formatter(route, params))
+  xhttp.send()
+}
+
+function post(route, params, callback) {
+  var xhttp = get_xhttp(callback)
+  xhttp.open("POST", url_formatter(route, params))
+  xhttp.send()
+}
+
+function get_xhttp(callback) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      callback(JSON.parse(this.responseText))
+    }
+  }
+  return xhttp
+}
