@@ -4,16 +4,16 @@
     <script type="text/javascript" src="libraries/persist-min.js"></script>
     <script type="text/javascript" src="scripts/store.js"></script>
     <script type="text/javascript" src="scripts/api.js"></script>
-    <script type="text/javascript" src="scripts/create_game.js"></script>
+    <script type="text/javascript" src="scripts/lobby.js"></script>
   </head>
 
-  <body onload='load_data();'>
+  <body onload='page_load();'>
     <div>
-      <h1>Snakes and Ladders</h1>
+      <h1>Lobby</h1>
+      <div id="invite-link"></div>
       <div>
-        <label>Name</label>
-        <input type="text" id="name"><br>
-        <button onclick="new_game()">Create Game</button>
+        <div>Players</div>
+        <ul id="players"></ul>
       </div>
     </div>
   </body>
