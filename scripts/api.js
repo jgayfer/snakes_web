@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:9292/'
+const BASE_URL = 'http://10.0.0.35:9292/'
 
 function create_game(player_name, callback) {
   post('game', {'player': player_name}, callback)
@@ -8,8 +8,8 @@ function join_game(player_name, game_id, callback) {
   post('game/' + game_id + '/join', {'player': player_name}, callback)
 }
 
-function get_game(game_id, client_id, callback) {
-  get('game/' + game_id, {'client_id': client_id, 'test': 'etst2'}, callback)
+function get_game(game_id, callback) {
+  get('game/' + game_id, {}, callback)
 }
 
 function move(game_id, client_id, callback) {
