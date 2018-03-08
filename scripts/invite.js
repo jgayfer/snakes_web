@@ -17,6 +17,7 @@ function set_invite_header(json) {
 
 function accept_invite() {
   player_name = document.getElementById('name').value
+  store.set('player_name', player_name)
   join_game(player_name, game_id, join_game_callback)
 }
 

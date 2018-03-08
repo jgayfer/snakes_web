@@ -1,5 +1,6 @@
 function new_game() {
   player_name = document.getElementById('name').value
+  store.set('player_name', player_name)
   create_game(player_name, new_game_callback)
 }
 

@@ -1,11 +1,14 @@
 <html>
 
   <head>
+    <script type="text/javascript" src="libraries/persist-min.js"></script>
+    <script type="text/javascript" src="scripts/store.js"></script>
+    <script type="text/javascript" src="scripts/api.js"></script>
     <script type="text/javascript" src="scripts/display_game.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/game.css">
   </head>
 
-  <body>
+  <body onload='page_load();'>
     <div>
       <h1>Snakes and Ladders</h1>
       <div class="board-container">
@@ -16,7 +19,7 @@
         </table>
       </div>
       <div id="status-text"></div>
-      <button id="move-player-btn" onclick="move_player()">Move Next Player</button>
+      <button id="move-player-btn" onclick="move_player_handler()">Move</button>
     </div>
   </body>
 

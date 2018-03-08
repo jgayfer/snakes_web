@@ -24,6 +24,11 @@ function set_invite_link() {
   invite_element.innerHTML = invite_message
 }
 
+function start_game() {
+  // Start game endpoint?
+  window.location.href = 'game.html?game_id=' + game_id
+}
+
 // ******************
 // Internal functions
 // ******************
