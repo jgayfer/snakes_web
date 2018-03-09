@@ -1,24 +1,30 @@
 const BASE_URL = 'http://10.0.0.35:9292/'
 
-function create_game(player_name, callback) {
+function create_game(player_name, callback = empty_function) {
   post('game', {'player': player_name}, callback)
 }
 
-function join_game(player_name, game_id, callback) {
+function join_game(player_name, game_id, callback = empty_function) {
   post('game/' + game_id + '/join', {'player': player_name}, callback)
 }
 
-function get_game(game_id, callback) {
+function get_game(game_id, callback = empty_function) {
   get('game/' + game_id, {}, callback)
 }
 
-function move(game_id, client_id, callback) {
+function move(game_id, client_id, callback = empty_function) {
   post('game/' + game_id + '/move', {'client_id': client_id}, callback)
+}
+
+function start_game(game_id, client_id, callback = empty_function) {
+  post('game/' + game_id + '/start', {'client_id': client_id}, callback)
 }
 
 // ******************
 // Internal functions
 // ******************
+
+empty_function = function() {}
 
 function url_formatter(route, params) {
   var url = BASE_URL + route
