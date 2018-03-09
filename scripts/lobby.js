@@ -14,8 +14,17 @@ function page_load() {
   setInterval(update_lobby, 500)
 }
 
+function start_game_handler() {
+  start_game(game_id, client_id)
+  window.location.href = 'game.html?game_id=' + game_id
+}
+
+// ******************
+// Internal functions
+// ******************
+
 function update_lobby() {
-  get_game(game_id, lobby_players_callback)
+  get_game(game_id, update_lobby_callback)
 }
 
 function set_invite_link() {
@@ -24,16 +33,14 @@ function set_invite_link() {
   invite_element.innerHTML = invite_message
 }
 
-function start_game() {
-  // Start game endpoint?
-  window.location.href = 'game.html?game_id=' + game_id
+function update_lobby_callback(json) {
+  if (json['game_has_started']) {
+    window.location.href = 'game.html?game_id=' + game_id
+  }
+  update_lobby_players(json)
 }
 
-// ******************
-// Internal functions
-// ******************
-
-function lobby_players_callback(json) {
+function update_lobby_players(json) {
   var players = json['game']['players']
   var new_player_list = document.createElement('UL')
 

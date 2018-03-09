@@ -13,7 +13,7 @@ function page_load() {
 }
 
 function move_player_handler() {
-  move(game_id, client_id, update_game_callback)
+  move(game_id, client_id, move_player_callback)
 }
 
 // ******************
@@ -22,6 +22,10 @@ function move_player_handler() {
 
 function update_game() {
   get_game(game_id, update_game_callback)
+}
+
+function move_player_callback(json) {
+  update_game()
 }
 
 function update_game_callback(json) {
