@@ -51,8 +51,6 @@ function update_lobby_players(json) {
     new_player_list.appendChild(player_element)
   }
 
-  console.log(new_player_list)
-
   if (new_player_list.innerHTML != player_list.innerHTML) {
     player_list.replaceWith(new_player_list)
     player_list = new_player_list
