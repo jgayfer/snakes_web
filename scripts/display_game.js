@@ -45,7 +45,7 @@ function populate_board(game_json) {
   let cells = game_json['game']['board']['cells']
 
   let table_body = document.getElementById("cell-container")
-  for (let i = 0; i < dimension; i++) {
+  for (let i = (dimension - 1); i >= 0; i--) {
     let tr = document.createElement('TR')
     for (let j = 0; j < dimension; j++) {
       let cell_index = j + (i * 10)
