@@ -5,6 +5,7 @@ function page_load() {
   let params = (new URL(document.location)).searchParams
   game_id = params.get("game_id")
   store.set('game_id', game_id)
+  setup_enter_listener()
   get_game(game_id, retrieve_game_callback)
 }
 
@@ -17,6 +18,16 @@ function accept_invite() {
 // ******************
 // Internal functions
 // ******************
+
+function setup_enter_listener() {
+  var name_field = document.getElementById('name')
+  name_field.addEventListener("keyup", function(event) {
+    event.preventDefault()
+    if (event.keyCode === 13) {
+      accept_invite()
+    }
+  })
+}
 
 function set_invite_header(json) {
   var invite_header = document.getElementById('invite-header')
