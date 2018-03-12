@@ -1,5 +1,10 @@
+.app {
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
+  margin: 0 auto;
 }
 
 tr, td {
@@ -12,16 +17,17 @@ td {
   padding: 2px;
 }
 
-.number, .transition {
-  display: inline;
+.number {
   position: absolute;
-  top: -1.45rem;
+  top: -2rem;
+  left: 0.3rem;
 }
 
 .transition {
-  float: right;
-  font-size: .8rem;
-  right: 0;
+  font-size: 1.2rem;
+  position: absolute;
+  right: .3rem;
+  top: -2rem;
 }
 
 .player {
