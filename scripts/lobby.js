@@ -29,8 +29,8 @@ function update_lobby() {
 
 function set_invite_link() {
   var invite_element = document.getElementById('invite-link')
-  var invite_message = 'Invite link: ' + window.location.host + '/invite.html?game_id=' + game_id
-  invite_element.innerHTML = invite_message
+  var invite_message = 'http://' + window.location.host + '/invite.html?game_id=' + game_id
+  invite_element.value = invite_message
 }
 
 function update_lobby_callback(json) {
@@ -48,6 +48,7 @@ function update_lobby_players(json) {
     var player_name = players[i]['name']
     var player_element = document.createElement('LI')
     player_element.innerHTML = player_name
+    player_element.className = "list-group-item"
     new_player_list.appendChild(player_element)
   }
 

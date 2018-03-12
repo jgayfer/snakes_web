@@ -1,0 +1,22 @@
+.app {
+  text-align: center;
+}
+
+.lobby {
+  text-align: left;
+  width: 50rem;
+  margin: 0 auto;
+}
+
+.link-container {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.players-container {
+  margin: 1.5rem 0;
+}

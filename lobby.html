@@ -5,18 +5,24 @@
     <script type="text/javascript" src="scripts/store.js"></script>
     <script type="text/javascript" src="scripts/api.js"></script>
     <script type="text/javascript" src="scripts/lobby.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/lobby.css">
   </head>
 
   <body onload='page_load();'>
-    <div>
+    <div class="app">
       <h1>Snakes and Ladders</h1>
-      <h2>Lobby</h2>
-      <div id="invite-link"></div>
-      <div>
-        <div>Players</div>
-        <ul id="players"></ul>
+      <div class="lobby">
+        <span class="input-group mb-3 link-container">
+          <span class="input-group-addon" id="basic-addon3">Invite Link</span>
+          <input type="text" class="form-control" id="invite-link">
+        </span>
+        <div class="players-container">
+          <h4>Players</h4>
+          <ul class="list-group" id="players"></ul>
+        </div>
       </div>
-      <button onclick="start_game_handler()">Start Game</button>
+      <button type="button" class="btn btn-primary" onclick="start_game_handler()">Start Game</button>
     </div>
   </body>
 
