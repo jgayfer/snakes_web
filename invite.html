@@ -5,17 +5,18 @@
     <script type="text/javascript" src="scripts/store.js"></script>
     <script type="text/javascript" src="scripts/api.js"></script>
     <script type="text/javascript" src="scripts/invite.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/invite.css">
   </head>
 
   <body onload='page_load();'>
-    <div>
+    <div class="app">
       <h1>Snakes and Ladders</h1>
-      <h2 id="invite-header"></h2>
-      <div>
-          <label>Name</label>
-          <input type="text" id="name"><br>
-          <button onclick="accept_invite()">Join Game</button>
-        </div>
+      <h4 id="invite-header"></h2>
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Name" id="name">
+      </div>
+      <button type="button" class="btn btn-primary" onclick="accept_invite()">Join Game</button>
     </div>
   </body>
 
